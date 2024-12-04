@@ -28,13 +28,13 @@ export default function Navigation() {
             Electronics
           </Link>
           <Link
-            href="/category/fashion"
+            href="/category/jewelry"
             className="text-gray-700 hover:text-blue-600"
           >
-            Fashion
+            Jewelry
           </Link>
-          <Link href="/deals" className="text-gray-700 hover:text-blue-600">
-            Deals
+          <Link href="/about" className="text-gray-700 hover:text-blue-600">
+            About
           </Link>
           {session ? (
             <>
@@ -103,16 +103,16 @@ export default function Navigation() {
             Electronics
           </Link>
           <Link
-            href="/category/fashion"
+            href="/category/jewelry"
             className="block text-gray-700 hover:text-blue-600"
           >
-            Fashion
+            Jewelry
           </Link>
           <Link
-            href="/deals"
+            href="/about"
             className="block text-gray-700 hover:text-blue-600"
           >
-            Deals
+            About
           </Link>
           {session ? (
             <>
