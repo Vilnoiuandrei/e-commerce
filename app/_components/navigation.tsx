@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
 
 export default function Navigation() {
@@ -52,12 +52,9 @@ export default function Navigation() {
               </button>
             </>
           ) : (
-            <button
-              onClick={() => signIn()}
-              className="text-gray-700 hover:text-blue-600"
-            >
+            <Link href="/login" className="text-gray-700 hover:text-blue-600">
               Login
-            </button>
+            </Link>
           )}
           <Link href="/cart" className="relative">
             <svg
