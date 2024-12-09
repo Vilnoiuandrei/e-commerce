@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="py-4 text-gray-800">
+    <div className="py-4 text-gray-800 px-7">
       <section>
         <h1 className="text-2xl font-bold">About Us</h1>
         <p>
@@ -14,7 +14,7 @@ export default function About() {
         </p>
       </section>
 
-      <section className="">
+      <section>
         <h2 className="text-xl font-semibold mt-6">Why Choose Us?</h2>
         <p>
           At <strong>OpalCart</strong>, we prioritize quality, customer
