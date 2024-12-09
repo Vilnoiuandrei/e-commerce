@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 import Navigation from "./_components/navigation";
+import ReactQueryProvider from "./_lib/providers";
 
 export const metadata: Metadata = {
   title: "E-Commerce Platform",
@@ -19,8 +20,10 @@ export default function RootLayout({
     <SessionProvider session={sesion}>
       <html lang="en">
         <body>
-          <Navigation />
-          <main>{children}</main>
+          <ReactQueryProvider>
+            <Navigation />
+            <main>{children}</main>
+          </ReactQueryProvider>
         </body>
       </html>
     </SessionProvider>

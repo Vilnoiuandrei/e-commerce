@@ -10,6 +10,9 @@ export default function Navigation() {
   return (
     <nav className="bg-white shadow-md py-4 px-6">
       <div className="flex items-center justify-between">
+        <Link href="/" className="text-2xl tracking-wide">
+          OpalCart
+        </Link>
         {/* Search Bar */}
         <div className="hidden md:block flex-grow mx-6">
           <input
