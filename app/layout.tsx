@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import Navigation from "./_components/navigation";
+import Navigation from "./_components/Navigation";
 import ReactQueryProvider from "./_lib/providers";
 
 export const metadata: Metadata = {
