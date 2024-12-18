@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import ProductItem from "../_components/Product";
-import Loader from "@/components/Loader";
+import Loader from "../_components/Loader";
 
 interface Product {
   id: number;

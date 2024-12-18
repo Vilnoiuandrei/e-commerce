@@ -15,9 +15,13 @@ export default function ProductItem({ product }: ProductItemProps) {
   return (
     <li className="p-4 border rounded-lg shadow hover:shadow-lg transition">
       <Image
+        className="mx-auto h-auto"
         src={product.image}
         alt={product.title}
-        className="w-full h-40 object-contain mb-4"
+        width={500}
+        height={0}
+        placeholder="blur"
+        blurDataURL={product.image}
       />
       <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
       <p className="text-gray-700 font-medium">${product.price}</p>
