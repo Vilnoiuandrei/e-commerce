@@ -31,10 +31,10 @@ export default function Navigation() {
             Electronics
           </Link>
           <Link
-            href="/category/jewelry"
+            href="/category/jewelery"
             className="text-gray-700 hover:text-blue-600"
           >
-            Jewelry
+            Jewelery
           </Link>
           <Link href="/about" className="text-gray-700 hover:text-blue-600">
             About
@@ -103,10 +103,10 @@ export default function Navigation() {
             Electronics
           </Link>
           <Link
-            href="/category/jewelry"
+            href="/category/jewelery"
             className="block text-gray-700 hover:text-blue-600"
           >
-            Jewelry
+            Jewelery
           </Link>
           <Link
             href="/about"
