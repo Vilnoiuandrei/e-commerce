@@ -41,7 +41,7 @@ export default function ElectronicsList({}) {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">Electronics</h1>
-      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-2">
         {data?.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
