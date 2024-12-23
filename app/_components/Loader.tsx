@@ -1,9 +1,9 @@
-import { PulseLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 
 export default function Loader() {
   return (
     <div className="h-screen flex justify-center items-center">
-      <PulseLoader color="white" size={20} loading={true} />
+      <BarLoader color="blue" width={300} height={15} loading={true} />
     </div>
   );
 }
