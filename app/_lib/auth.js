@@ -13,7 +13,7 @@ const authConfig = {
     async jwt({ token, user }) {
       if (user) {
         const client = await clientPromise;
-        const db = client.db("nextjs_bank");
+        const db = client.db("opal");
 
         const userEmail = user.email;
         let dbUser = await db.collection("users").findOne({ email: userEmail });
@@ -22,7 +22,6 @@ const authConfig = {
           const newUser = {
             name: user.name,
             email: user.email,
-            balance: 5000,
             createdAt: new Date(),
           };
           const result = await db.collection("users").insertOne(newUser);

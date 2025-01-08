@@ -6,7 +6,7 @@ export default function SignIn() {
       <p>Please log in to view your account.</p>
       <button
         className="bg-customLight text-customDark mt-3 h-10 w-24 shadow-md rounded-sm"
-        onClick={() => signIn("google", { redirectTo: "/account" })}
+        onClick={() => signIn("google", { redirectTo: "/" })}
       >
         Sign In
       </button>
