@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 export default function Navigation() {
   const { data: session } = useSession(); // Get session info
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu toggle
+  console.log("session", session);
 
   return (
     <nav className="bg-white shadow-md py-4 px-6">
@@ -42,17 +43,11 @@ export default function Navigation() {
           {session ? (
             <>
               <Link
-                href="/account/profile"
+                href="/profile"
                 className="text-gray-700 hover:text-blue-600"
               >
                 Profile
               </Link>
-              <button
-                onClick={() => signOut()}
-                className="text-gray-700 hover:text-blue-600"
-              >
-                Logout
-              </button>
             </>
           ) : (
             <Link href="/login" className="text-gray-700 hover:text-blue-600">
@@ -117,7 +112,7 @@ export default function Navigation() {
           {session ? (
             <>
               <Link
-                href="/account/profile"
+                href="/profile"
                 className="block text-gray-700 hover:text-blue-600"
               >
                 Profile
