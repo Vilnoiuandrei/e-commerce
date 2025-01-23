@@ -6,7 +6,6 @@ import { useState } from "react";
 export default function Navigation() {
   const { data: session } = useSession(); // Get session info
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu toggle
-  console.log("session", session);
 
   return (
     <nav className="bg-white shadow-md py-4 px-6">
@@ -19,7 +18,7 @@ export default function Navigation() {
           <input
             type="text"
             placeholder="Search products..."
-            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 max-w-96"
           />
         </div>
 
@@ -117,20 +116,11 @@ export default function Navigation() {
               >
                 Profile
               </Link>
-              <button
-                onClick={() => signOut()}
-                className="block text-gray-700 hover:text-blue-600"
-              >
-                Logout
-              </button>
             </>
           ) : (
-            <button
-              onClick={() => signIn()}
-              className="block text-gray-700 hover:text-blue-600"
-            >
+            <Link href="/login" className="text-gray-700 hover:text-blue-600">
               Login
-            </button>
+            </Link>
           )}
           <Link
             href="/cart"
