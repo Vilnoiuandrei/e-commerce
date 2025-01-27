@@ -3,6 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 import Navigation from "./_components/Navigation";
 import ReactQueryProvider from "./_lib/providers";
+import { CartProvider } from "./_contex/CartContex";
 
 export const metadata: Metadata = {
   title: "E-Commerce Platform",
@@ -11,18 +12,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  sesion,
+  session,
 }: {
   children: React.ReactNode;
-  sesion: any;
+  session: any;
 }) {
   return (
-    <SessionProvider session={sesion}>
+    <SessionProvider session={session}>
       <html lang="en">
         <body>
           <ReactQueryProvider>
-            <Navigation />
-            <main>{children}</main>
+            <CartProvider>
+              <Navigation />
+              <main>{children}</main>
+            </CartProvider>
           </ReactQueryProvider>
         </body>
       </html>

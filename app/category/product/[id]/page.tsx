@@ -2,8 +2,9 @@
 
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import Loader from "../../../_components/Loader";
 import Image from "next/image";
+import Loader from "../../../_components/Loader";
+import { useCart } from "../../../_contex/CartContex";
 
 interface Product {
   id: number;
@@ -18,7 +19,7 @@ interface Product {
   };
 }
 
-async function fetchProduct(id: string) {
+const fetchProduct = async (id: string): Promise<Product> => {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`);
 
   if (!res.ok) {
@@ -26,13 +27,11 @@ async function fetchProduct(id: string) {
   }
 
   return res.json();
-}
+};
 
 export default function ProductItem() {
   const { id } = useParams();
-  if (!id) {
-    throw new Error("No id");
-  }
+  const { addToCart } = useCart();
 
   const { data, isLoading, isError } = useQuery<Product>({
     queryKey: ["product", id],
@@ -46,7 +45,7 @@ export default function ProductItem() {
   return (
     <div className="max-w-2xl mx-auto p-4">
       {data && (
-        <div>
+        <>
           <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
           <div className="h-96 relative mb-4">
             <Image
@@ -65,11 +64,14 @@ export default function ProductItem() {
             <span>({data.rating.count} reviews)</span>
           </div>
           <div className="flex justify-center items-center mt-3 py-2">
-            <button className="bg-blue-400   h-10 w-56 shadow-md rounded-md flex  justify-center items-center">
+            <button
+              className="bg-blue-400 h-10 w-56 shadow-md rounded-md flex justify-center items-center"
+              onClick={() => addToCart(data)}
+            >
               Add to cart
             </button>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
