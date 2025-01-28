@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { useState } from "react";
 import Loader from "../../../_components/Loader";
 import { useCart } from "../../../_contex/CartContex";
 
@@ -32,6 +33,7 @@ const fetchProduct = async (id: string): Promise<Product> => {
 export default function ProductItem() {
   const { id } = useParams();
   const { addToCart } = useCart();
+  const [isClicked, setIsClicked] = useState(false);
 
   const { data, isLoading, isError } = useQuery<Product>({
     queryKey: ["product", id],
@@ -41,6 +43,11 @@ export default function ProductItem() {
 
   if (isLoading) return <Loader />;
   if (isError) return <p>Error loading product.</p>;
+
+  const handleAddToCart = () => {
+    addToCart(data);
+    setIsClicked(true);
+  };
 
   return (
     <div className="max-w-2xl mx-auto p-4">
@@ -65,10 +72,12 @@ export default function ProductItem() {
           </div>
           <div className="flex justify-center items-center mt-3 py-2">
             <button
-              className="bg-blue-400 h-10 w-56 shadow-md rounded-md flex justify-center items-center"
-              onClick={() => addToCart(data)}
+              className={`h-10 w-56 shadow-md rounded-md flex justify-center items-center transform transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 active:scale-95 ${
+                isClicked ? "bg-red-500" : "bg-blue-400"
+              }`}
+              onClick={handleAddToCart}
             >
-              Add to cart
+              {isClicked ? "Added to cart" : "Add to cart"}
             </button>
           </div>
         </>

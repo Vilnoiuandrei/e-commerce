@@ -30,13 +30,13 @@ export default async function Profile() {
             </div>
             <Link
               href="/setings "
-              className="bg-blue-400  h-10 w-56 shadow-md rounded-md flex items-center justify-center "
+              className="bg-blue-400  h-10 w-56 shadow-md rounded-md flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1  "
             >
               <p>Setings</p>
             </Link>
             <Link
               href="cart "
-              className="bg-blue-400  h-10 w-56 shadow-md rounded-md flex items-center justify-center "
+              className="bg-blue-400  h-10 w-56 shadow-md rounded-md flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 "
             >
               <p>Go to cart</p>
             </Link>
