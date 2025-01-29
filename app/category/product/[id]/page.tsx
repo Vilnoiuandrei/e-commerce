@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
 import Loader from "../../../_components/Loader";
-import { useCart } from "../../../_contex/CartContex";
+import { useCart } from "./../../../_context/CartContext";
 
 interface Product {
   id: number;

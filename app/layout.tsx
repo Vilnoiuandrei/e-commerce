@@ -3,7 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 import Navigation from "./_components/Navigation";
 import ReactQueryProvider from "./_lib/providers";
-import { CartProvider } from "./_contex/CartContex";
+import { CartProvider } from "./_context/CartContext";
 
 export const metadata: Metadata = {
   title: "E-Commerce Platform",

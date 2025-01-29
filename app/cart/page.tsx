@@ -1,10 +1,10 @@
 "use client";
 
-import { useCart } from "./../_contex/CartContex";
+import { useCart } from "./../_context/CartContext";
 import Image from "next/image";
 
 export default function Cart() {
-  const { cart } = useCart();
+  const { cart, decreaseQuantity, increaseQuantity } = useCart();
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -28,7 +28,22 @@ export default function Cart() {
                 <div>
                   <h2 className="text-lg font-semibold">{item.title}</h2>
                   <p className="text-gray-500">${item.price * item.quantity}</p>
-                  <p className="text-gray-500">Quantity: {item.quantity}</p>
+                  <div className="text-gray-500 flex items-center space-x-2 h-12">
+                    <button
+                      className="bg-red-600 rounded-full text-black w-5 h-5 flex items-center justify-center text-lg "
+                      onClick={() => decreaseQuantity(item.id)}
+                    >
+                      -
+                    </button>
+                    <span> Quantity: {item.quantity}</span>
+
+                    <button
+                      className="bg-green-600 rounded-full text-black w-5 h-5 flex items-center justify-center "
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </li>
             ))}
