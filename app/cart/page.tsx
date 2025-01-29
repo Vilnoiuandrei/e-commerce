@@ -16,18 +16,23 @@ export default function Cart() {
         <>
           <ul className="mt-4">
             {cart.map((item) => (
-              <li key={item.id} className="flex items-center mb-4">
-                <div className="w-24 h-24 relative mr-4">
+              <li key={item.id} className="flex items-center  mb-4">
+                <div className="  mr-4">
                   <Image
+                    className="mx-auto w-auto h-auto"
                     src={item.image}
                     alt={item.title}
-                    layout="fill"
-                    objectFit="contain"
+                    width={70}
+                    height={0}
+                    placeholder="blur"
+                    blurDataURL={item.image}
                   />
                 </div>
-                <div>
+                <div className="w-96">
                   <h2 className="text-lg font-semibold">{item.title}</h2>
-                  <p className="text-gray-500">${item.price * item.quantity}</p>
+                  <p className="text-gray-500">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </p>
                   <div className="text-gray-500 flex items-center space-x-2 h-12">
                     <button
                       className="bg-red-600 rounded-full text-black w-5 h-5 flex items-center justify-center text-lg "
@@ -35,7 +40,7 @@ export default function Cart() {
                     >
                       -
                     </button>
-                    <span> Quantity: {item.quantity}</span>
+                    <span className="w-24"> Quantity: {item.quantity}</span>
 
                     <button
                       className="bg-green-600 rounded-full text-black w-5 h-5 flex items-center justify-center "

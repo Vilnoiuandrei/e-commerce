@@ -4,6 +4,8 @@ import "./globals.css";
 import Navigation from "./_components/Navigation";
 import ReactQueryProvider from "./_lib/providers";
 import { CartProvider } from "./_context/CartContext";
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "E-Commerce Platform",
@@ -20,7 +22,7 @@ export default function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body>
+        <body className={`${inter.className}  min-h-screen `}>
           <ReactQueryProvider>
             <CartProvider>
               <Navigation />
