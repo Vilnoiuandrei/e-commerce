@@ -6,7 +6,7 @@ export default function WomenClothing() {
     <div>
       <div className="flex flex-row gap-3 my-4 justify-center items-center">
         <BackButton />
-        <h1 className="text-2xl font-bold ">Women's Clothing</h1>
+        <h1 className="text-2xl font-bold">Women&apos;s Clothing</h1>
       </div>
       <WomenClothingList />
     </div>

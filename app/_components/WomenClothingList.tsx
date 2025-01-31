@@ -10,6 +10,7 @@ interface Product {
   price: number;
   category: string;
   image: string;
+  description: string;
   rating: {
     rate: number;
     count: number;
@@ -35,7 +36,7 @@ export default function WomenClothingList() {
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <p>Error loading women's clothing.</p>;
+  if (isError) return <p>Error loading women&apos;s clothing.</p>;
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-2">

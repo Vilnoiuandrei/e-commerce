@@ -10,6 +10,7 @@ interface Product {
   price: number;
   category: string;
   image: string;
+  description: string;
   rating: {
     rate: number;
     count: number;
@@ -22,7 +23,7 @@ const fetchMenClothing = async (): Promise<Product[]> => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch men's clothing");
+    throw new Error("Failed to fetch men&apos;s clothing");
   }
 
   return res.json();
@@ -35,7 +36,7 @@ export default function MenClothingList() {
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <p>Error loading men's clothing.</p>;
+  if (isError) return <p>Error loading men&apos;s clothing.</p>;
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-2">

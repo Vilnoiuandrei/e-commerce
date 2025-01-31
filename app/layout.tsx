@@ -5,7 +5,6 @@ import Navigation from "./_components/Navigation";
 import ReactQueryProvider from "./_lib/providers";
 import { CartProvider } from "./_context/CartContext";
 import { Inter } from "next/font/google";
-import { Session } from "next-auth";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
@@ -15,15 +14,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  session,
 }: {
   children: React.ReactNode;
-  session: Session | null | undefined;
 }) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider>
       <html lang="en">
-        <body className={`${inter.className}  min-h-screen `}>
+        <body className={`${inter.className} min-h-screen`}>
           <ReactQueryProvider>
             <CartProvider>
               <Navigation />

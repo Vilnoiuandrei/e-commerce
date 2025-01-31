@@ -29,7 +29,7 @@ export default function Home() {
               <FaTshirt className="mx-auto text-6xl my-4" />
               <div className="p-4">
                 <h3 className="text-xl font-semibold text-gray-700">
-                  Men Clothing
+                  Men&apos;s Clothing
                 </h3>
               </div>
             </div>
@@ -39,7 +39,7 @@ export default function Home() {
               <GiLargeDress className="mx-auto text-6xl my-4" />
               <div className="p-4">
                 <h3 className="text-xl font-semibold text-gray-700">
-                  Women Clothing
+                  Women&apos;s Clothing
                 </h3>
               </div>
             </div>
