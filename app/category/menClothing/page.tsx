@@ -1,14 +1,14 @@
 import BackButton from "@/app/_components/BackButton";
-import JeweleryList from "@/app/_components/JeweleryList";
+import MenClothingList from "@/app/_components/MenClothingList";
 
-export default function Jewelery() {
+export default function MenClothing() {
   return (
     <div>
       <div className="flex flex-row gap-3 my-4 justify-center items-center">
         <BackButton />
-        <h1 className="text-2xl font-bold">Jewelery</h1>
+        <h1 className="text-2xl font-bold">Men's Clothing</h1>
       </div>
-      <JeweleryList />
+      <MenClothingList />
     </div>
   );
 }

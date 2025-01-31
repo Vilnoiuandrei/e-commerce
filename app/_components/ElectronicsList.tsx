@@ -38,13 +38,10 @@ export default function ElectronicsList({}) {
   if (isError) return <p>Error loading electronics.</p>;
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">Electronics</h1>
-      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-2">
-        {data?.map((product) => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      </ul>
-    </div>
+    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-2">
+      {data?.map((product) => (
+        <ProductItem key={product.id} product={product} />
+      ))}
+    </ul>
   );
 }

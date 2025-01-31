@@ -12,7 +12,7 @@ export default function Home() {
           <p className="text-xl mb-6">
             Shop the best products with AI-powered recommendations
           </p>
-          <Link href="/category/electronics">
+          <Link href="/category/all">
             <div className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
               Shop Now
             </div>

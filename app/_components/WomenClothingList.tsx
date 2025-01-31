@@ -16,26 +16,26 @@ interface Product {
   };
 }
 
-const fetchJewelery = async (): Promise<Product[]> => {
+const fetchWomenClothing = async (): Promise<Product[]> => {
   const res = await fetch(
-    "https://fakestoreapi.com/products/category/jewelery"
+    "https://fakestoreapi.com/products/category/women's clothing"
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch jewelry");
+    throw new Error("Failed to fetch women's clothing");
   }
 
   return res.json();
 };
 
-export default function JeweleryList({}) {
+export default function WomenClothingList() {
   const { data, isLoading, isError } = useQuery<Product[]>({
-    queryKey: ["jewelery"],
-    queryFn: fetchJewelery,
+    queryKey: ["womenClothing"],
+    queryFn: fetchWomenClothing,
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <p>Error loading jewelery.</p>;
+  if (isError) return <p>Error loading women's clothing.</p>;
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-2">

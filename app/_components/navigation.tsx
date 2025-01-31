@@ -16,28 +16,16 @@ export default function Navigation() {
           OpalCart
         </Link>
         {/* Search Bar */}
-        <div className="hidden md:block flex-grow mx-6">
+        {/* <div className="hidden md:block flex-grow mx-6">
           <input
             type="text"
             placeholder="Search products..."
             className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 max-w-96"
           />
-        </div>
+        </div> */}
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 items-center">
-          <Link
-            href="/category/electronics"
-            className="text-gray-700 hover:text-blue-600"
-          >
-            Electronics
-          </Link>
-          <Link
-            href="/category/jewelery"
-            className="text-gray-700 hover:text-blue-600"
-          >
-            Jewelery
-          </Link>
           <Link href="/about" className="text-gray-700 hover:text-blue-600">
             About
           </Link>
@@ -87,23 +75,12 @@ export default function Navigation() {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden mt-4 space-y-4">
-          <input
+          {/* <input
             type="text"
             placeholder="Search products..."
             className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          <Link
-            href="/category/electronics"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Electronics
-          </Link>
-          <Link
-            href="/category/jewelery"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            Jewelery
-          </Link>
+          /> */}
+
           <Link
             href="/about"
             className="block text-gray-700 hover:text-blue-600"
