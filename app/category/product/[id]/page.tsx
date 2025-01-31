@@ -45,7 +45,9 @@ export default function ProductItem() {
   if (isError) return <p>Error loading product.</p>;
 
   const handleAddToCart = () => {
-    addToCart(data);
+    if (data) {
+      addToCart(data);
+    }
     setIsClicked(true);
   };
 
