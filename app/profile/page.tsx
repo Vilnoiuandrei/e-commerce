@@ -2,6 +2,7 @@ import Link from "next/link";
 import SignOut from "../_components/SignOut";
 import { auth } from "../_lib/auth";
 import Image from "next/image";
+import SignIn from "../_components/SignIn";
 
 export default async function Profile() {
   const session = await auth();
@@ -29,13 +30,13 @@ export default async function Profile() {
               <span>{user?.email}</span>
             </div>
             <Link
-              href="/setings "
+              href="/settings"
               className="bg-blue-400  h-10 w-56 shadow-md rounded-md flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1  "
             >
-              <p>Setings</p>
+              <p>Settings</p>
             </Link>
             <Link
-              href="cart "
+              href="/cart"
               className="bg-blue-400  h-10 w-56 shadow-md rounded-md flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 "
             >
               <p>Go to cart</p>
@@ -44,7 +45,11 @@ export default async function Profile() {
           </div>
         </div>
       ) : (
-        <div>Not logged in</div>
+        <div className="flex flex-col items-center justify-center gap-6 p-8 rounded-lg mt-12">
+          <p className="text-2xl font-bold">You are logged out</p>
+          <p className="text-lg">Please sign in to access your profile.</p>
+          <SignIn />
+        </div>
       )}
     </div>
   );
