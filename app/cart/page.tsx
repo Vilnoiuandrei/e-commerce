@@ -17,7 +17,7 @@ export default function Cart() {
           <ul className="mt-4">
             {cart.map((item) => (
               <li key={item.id} className="flex items-center  mb-4">
-                <div className="  mr-4">
+                <div className="  mr-6">
                   <Image
                     className="mx-auto w-auto h-auto"
                     src={item.image}
