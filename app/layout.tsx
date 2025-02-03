@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import Navigation from "./_components/Navigation";
+import Navigation from "@/app/_components/Navigation";
 import ReactQueryProvider from "./_lib/providers";
 import { CartProvider } from "./_context/CartContext";
 import { Inter } from "next/font/google";
