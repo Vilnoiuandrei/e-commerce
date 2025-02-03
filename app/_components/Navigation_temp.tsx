@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { useCart } from "./../_context/CartContext";
+import { useCart } from "../_context/CartContext";
 
 export default function Navigation() {
   const { data: session } = useSession(); // Get session info
