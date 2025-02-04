@@ -23,7 +23,7 @@ const fetchWomenClothing = async (): Promise<Product[]> => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch women's clothing");
+    throw new Error("Failed to fetch women%27s%20clothing");
   }
 
   return res.json();

@@ -19,7 +19,7 @@ interface Product {
 
 const fetchMenClothing = async (): Promise<Product[]> => {
   const res = await fetch(
-    "https://fakestoreapi.com/products/category/men's clothing"
+    "https://fakestoreapi.com/products/category/men%27s%20clothing"
   );
 
   if (!res.ok) {

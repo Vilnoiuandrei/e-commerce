@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 import Navigation from "@/app/_components/Navigation";
@@ -7,7 +6,7 @@ import { CartProvider } from "./_context/CartContext";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "E-Commerce Platform",
   description: "Shop the best products with AI-powered recommendations",
 };
