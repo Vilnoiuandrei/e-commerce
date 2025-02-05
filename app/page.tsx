@@ -6,16 +6,17 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative h-96 bg-blue-600 flex items-center justify-center">
-        <div className="absolute text-center text-white">
+      <div className=" h-96 bg-blue-600 flex items-center justify-center ">
+        <div className=" text-center text-white">
           <h1 className="text-4xl font-bold mb-4">Welcome to Our Store</h1>
-          <p className="text-xl mb-6">
+          <p className="text-xl mb-10">
             Shop the best products with AI-powered recommendations
           </p>
-          <Link href="/category/all">
-            <div className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-              Shop Now
-            </div>
+          <Link
+            href="/category/all"
+            className="bg-white text-blue-600 px-24 py-4 rounded-full font-semibold hover:bg-gray-200 transition "
+          >
+            Shop Now
           </Link>
         </div>
       </div>

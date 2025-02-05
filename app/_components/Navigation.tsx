@@ -66,7 +66,7 @@ export default function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="block md:hidden text-gray-700"
+          className="block md:hidden text-gray-700 text-2xl"
         >
           {isMenuOpen ? "✖" : "☰"}
         </button>
