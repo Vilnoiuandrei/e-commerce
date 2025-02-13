@@ -15,7 +15,7 @@ interface LikedMoviesApiResponse {
 }
 
 const fetchLikedMovies = async (): Promise<LikedMoviesApiResponse> => {
-  const res = await fetch("/api/userMovies");
+  const res = await fetch("/api/likes/get");
 
   if (!res.ok) {
     throw new Error("Network response was not ok");
@@ -25,7 +25,7 @@ const fetchLikedMovies = async (): Promise<LikedMoviesApiResponse> => {
 };
 
 const fetchAddLikedMovies = async (movieId: number | string): Promise<void> => {
-  const res = await fetch("/api/userMovies", {
+  const res = await fetch("/api/likes/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const fetchAddLikedMovies = async (movieId: number | string): Promise<void> => {
 const fetchRemovedLikedMovies = async (
   movieId: number | string
 ): Promise<void> => {
-  const res = await fetch("/api/userMovies/remove", {
+  const res = await fetch("/api/likes/remove", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
