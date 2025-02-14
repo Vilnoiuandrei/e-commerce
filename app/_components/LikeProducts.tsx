@@ -4,17 +4,17 @@ import { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-interface LikeMoviesProps {
-  movie: {
+interface LikeProductsProps {
+  product: {
     id: number;
   };
 }
 
-interface LikedMoviesApiResponse {
-  movies: number[];
+interface LikedProductsApiResponse {
+  products: number[];
 }
 
-const fetchLikedMovies = async (): Promise<LikedMoviesApiResponse> => {
+const fetchLikedProducts = async (): Promise<LikedProductsApiResponse> => {
   const res = await fetch("/api/likes/get");
 
   if (!res.ok) {
@@ -24,13 +24,13 @@ const fetchLikedMovies = async (): Promise<LikedMoviesApiResponse> => {
   return res.json();
 };
 
-const fetchAddLikedMovies = async (movieId: number | string): Promise<void> => {
+const fetchAddLikedProducts = async (id: number | string): Promise<void> => {
   const res = await fetch("/api/likes/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ movieId }),
+    body: JSON.stringify({ id }),
   });
 
   if (!res.ok) {
@@ -40,15 +40,15 @@ const fetchAddLikedMovies = async (movieId: number | string): Promise<void> => {
   return res.json();
 };
 
-const fetchRemovedLikedMovies = async (
-  movieId: number | string
+const fetchRemovedLikedProducts = async (
+  id: number | string
 ): Promise<void> => {
   const res = await fetch("/api/likes/remove", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ movieId }),
+    body: JSON.stringify({ id }),
   });
 
   if (!res.ok) {
@@ -58,53 +58,56 @@ const fetchRemovedLikedMovies = async (
   return res.json();
 };
 
-function checkLikedMovies(userMoviesId: number[], movieId: number): boolean {
-  return userMoviesId.some((userMovieId) => userMovieId === movieId);
+function checkLikedProducts(
+  userProductsId: number[],
+  productId: number
+): boolean {
+  return userProductsId.some((userProductId) => userProductId === productId);
 }
 
-export default function LikeMovies({ movie }: LikeMoviesProps) {
-  const movieId = movie.id;
+export default function LikeProducts({ product }: LikeProductsProps) {
+  const productId = product.id;
 
-  const { data: likedMoviesData, refetch: refetchLikedMovies } =
-    useQuery<LikedMoviesApiResponse>({
-      queryKey: ["savedMovies"],
-      queryFn: fetchLikedMovies,
+  const { data: likedProductsData, refetch: refetchLikedProducts } =
+    useQuery<LikedProductsApiResponse>({
+      queryKey: ["savedProducts"],
+      queryFn: fetchLikedProducts,
       staleTime: 1000 * 60 * 5, // Cache for 5 minutes
     });
 
   const [like, setLike] = useState(false);
 
   const addLikeMutation = useMutation({
-    mutationFn: fetchAddLikedMovies,
+    mutationFn: fetchAddLikedProducts,
     onSuccess: () => {
-      refetchLikedMovies();
+      refetchLikedProducts();
       setLike(true);
     },
   });
 
   const removeLikeMutation = useMutation({
-    mutationFn: fetchRemovedLikedMovies,
+    mutationFn: fetchRemovedLikedProducts,
     onSuccess: () => {
-      refetchLikedMovies();
+      refetchLikedProducts();
       setLike(false);
     },
   });
 
   useEffect(() => {
-    if (likedMoviesData) {
-      const likedMovies = likedMoviesData.movies;
-      setLike(checkLikedMovies(likedMovies, movieId));
+    if (likedProductsData) {
+      const likedProducts = likedProductsData.products;
+      setLike(checkLikedProducts(likedProducts, productId));
     }
-  }, [likedMoviesData, movieId]);
+  }, [likedProductsData, productId]);
 
   function handleLiked(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     e.stopPropagation();
     e.preventDefault();
 
     if (like) {
-      removeLikeMutation.mutate(movieId);
+      removeLikeMutation.mutate(productId);
     } else {
-      addLikeMutation.mutate(movieId);
+      addLikeMutation.mutate(productId);
     }
   }
 
