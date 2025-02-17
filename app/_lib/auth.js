@@ -23,6 +23,7 @@ const authConfig = {
             name: user.name,
             email: user.email,
             createdAt: new Date(),
+            products: [],
           };
           const result = await db.collection("users").insertOne(newUser);
           dbUser = { ...newUser, _id: result.insertedId };

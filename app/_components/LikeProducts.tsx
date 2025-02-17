@@ -112,10 +112,7 @@ export default function LikeProducts({ product }: LikeProductsProps) {
   }
 
   return (
-    <div
-      className="absolute bottom-2 right-2 mb-1 mr-2 flex text-4xl text-red-800"
-      onClick={handleLiked}
-    >
+    <div className="  text-3xl  text-red-600" onClick={handleLiked}>
       {like ? <FaHeart /> : <FaRegHeart />}
     </div>
   );

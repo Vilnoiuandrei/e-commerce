@@ -15,7 +15,7 @@ export async function POST(req) {
 
   const { id: productId } = await req.json();
 
-  if (productId) {
+  if (!productId) {
     return Response.json(
       { error: "Product ID is required" },
       {

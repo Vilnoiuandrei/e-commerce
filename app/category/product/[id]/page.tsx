@@ -7,6 +7,7 @@ import { useState } from "react";
 import Loader from "../../../_components/Loader";
 import { useCart } from "./../../../_context/CartContext";
 import BackButton from "@/app/_components/BackButton";
+import LikeProducts from "@/app/_components/LikeProducts";
 
 interface Product {
   id: number;
@@ -77,7 +78,7 @@ export default function ProductItem() {
             <span className="text-yellow-500 mr-2">{data.rating.rate} ★</span>
             <span>({data.rating.count} reviews)</span>
           </div>
-          <div className="flex justify-center items-center mt-3 py-2">
+          <div className="flex justify-center items-center mt-3 py-2 ">
             <button
               className={`h-10 w-56 shadow-md rounded-md flex justify-center items-center transform transition-transform duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 active:scale-95 ${
                 isClicked ? "bg-red-500" : "bg-blue-400"
@@ -86,6 +87,9 @@ export default function ProductItem() {
             >
               {isClicked ? "Added to cart" : "Add to cart"}
             </button>
+            <div className="flex items-center justify-center  border-2  border-blue-400 bg-blue-400 rounded-lg h-10 w-10 ml-3">
+              <LikeProducts product={data} />
+            </div>
           </div>
         </>
       )}
