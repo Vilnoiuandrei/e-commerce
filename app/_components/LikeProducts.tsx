@@ -33,10 +33,6 @@ const fetchAddLikedProducts = async (id: number | string): Promise<void> => {
     body: JSON.stringify({ id }),
   });
 
-  if (!res.ok) {
-    throw new Error("Network response was not ok");
-  }
-
   return res.json();
 };
 
