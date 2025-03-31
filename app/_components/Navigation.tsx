@@ -11,7 +11,7 @@ export default function Navigation() {
 
   return (
     <nav className="bg-white shadow-md py-4 px-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
         <Link href="/" className="text-2xl tracking-wide">
           OpalCart
         </Link>
@@ -73,42 +73,47 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden mt-4 space-y-4">
-          {/* <input
-            type="text"
-            placeholder="Search products..."
-            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-          /> */}
-
-          <Link
-            href="/about"
-            className="block text-gray-700 hover:text-blue-600"
-          >
-            About
-          </Link>
-          {session ? (
-            <>
-              <Link
-                href="/profile"
-                className="block text-gray-700 hover:text-blue-600"
-              >
-                Profile
-              </Link>
-            </>
-          ) : (
-            <Link href="/login" className="text-gray-700 hover:text-blue-600">
-              Login
+      <div
+        className={`md:hidden mt-4 flex flex-col gap-3 text-lg transition-all duration-200 ease-in-out ${
+          isMenuOpen
+            ? "opacity-100 max-h-screen"
+            : "opacity-0 max-h-0 overflow-hidden"
+        }`}
+      >
+        <Link
+          href="/about"
+          className="block text-gray-700 hover:text-blue-600"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          About
+        </Link>
+        {session ? (
+          <>
+            <Link
+              href="/profile"
+              className="block text-gray-700 hover:text-blue-600"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              Profile
             </Link>
-          )}
+          </>
+        ) : (
           <Link
-            href="/cart"
-            className="block text-gray-700 hover:text-blue-600"
+            href="/login"
+            className="text-gray-700 hover:text-blue-600"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            Cart
+            Login
           </Link>
-        </div>
-      )}
+        )}
+        <Link
+          href="/cart"
+          className="block text-gray-700 hover:text-blue-600"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          Cart
+        </Link>
+      </div>
     </nav>
   );
 }
